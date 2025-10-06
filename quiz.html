@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开始评估 - SRI-2025</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="quiz-page-bg">
+
+    <header class="quiz-header">
+        <nav class="container">
+            <a href="index.html" class="logo">SRI-2025</a>
+            <div id="quiz-progress-container">
+                <!-- 进度条将在这里动态生成 -->
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 整个测试流程的所有内容，都将由JS动态渲染到这个容器中 -->
+        <div id="quiz-container" class="container">
+            <!-- Loading... -->
+        </div>
+    </main>
+
+    <!-- 引入题库和测试引擎JS -->
+    <script src="database/questions.js"></script>
+    <script src="assets/js/quiz-engine.js"></script>
+</body>
+</html>

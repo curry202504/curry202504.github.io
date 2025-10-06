@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>历史记录 - SRI-2025</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <ul class="nav-left">
+                <li><a href="guide.html">使用指南</a></li>
+                <li><a href="science.html">科学依据</a></li>
+            </ul>
+            <a href="index.html" class="logo">SRI-2025</a>
+            <ul class="nav-right">
+                <li><a href="history.html" class="active">历史记录</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header container">
+            <h1>测评历史</h1>
+            <p>查看和管理您保存在此设备上的所有评估记录。</p>
+        </section>
+
+        <section class="history-content container">
+            
+            <!-- 数据总览 -->
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <span class="label">总测评次数</span>
+                    <strong id="total-tests">0</strong>
+                </div>
+                <div class="summary-card">
+                    <span class="label">完成测评</span>
+                    <strong id="completed-tests">0</strong>
+                </div>
+                <div class="summary-card">
+                    <span class="label">平均SRI指数</span>
+                    <strong id="average-sri">-</strong>
+                </div>
+                <div class="summary-card">
+                    <span class="label">测评类型</span>
+                    <strong id="test-types">快速: 0 / 完整: 0</strong>
+                </div>
+            </div>
+
+            <!-- 数据管理 -->
+            <div class="data-management">
+                <button id="export-json" class="button secondary">导出 JSON</button>
+                <button id="export-csv" class="button secondary">导出 CSV</button>
+                <button id="clear-history" class="button danger">清除所有记录</button>
+            </div>
+
+            <!-- 测评记录列表 -->
+            <div id="records-container">
+                <!-- JS 将在这里动态填充记录 -->
+                <div class="no-records">
+                    <p>您还没有任何测评记录。</p>
+                    <a href="quiz.html?version=quick" class="button primary">开始一次新的测评</a>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 性压抑指数计算器. 仅供教育和自我了解使用，不构成医疗建议。</p>
+        </div>
+    </footer>
+    
+    <!-- 引入历史记录页面的专属JS -->
+    <script src="assets/js/history.js"></script>
+</body>
+</html>
