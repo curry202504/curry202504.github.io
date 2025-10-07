@@ -1040,3 +1040,70 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+/* === 【新增】自定义广告按钮样式 === */
+.ad-button.ad-male {
+    background-color: #e9f2ff; /* 低饱和度浅蓝色 */
+    border-color: #a3c7ff;
+    color: #0052cc;
+}
+.ad-button.ad-male:hover {
+    background-color: #dcebff;
+    border-color: #0052cc;
+}
+
+.ad-button.ad-female {
+    background-color: #ffe9f2; /* 低饱和度浅粉色 */
+    border-color: #ffaccf;
+    color: #de350b;
+}
+.ad-button.ad-female:hover {
+    background-color: #ffdce9;
+    border-color: #de350b;
+}
+
+.ad-button.ad-donate {
+    background-color: #fff4e6; /* 低饱和度暖黄色 */
+    border-color: #ffc400;
+    color: #974f0c;
+}
+.ad-button.ad-donate:hover {
+    background-color: #ffeacc;
+    border-color: #974f0c;
+}
+
+/* === 【新增】分享弹窗样式 === */
+#share-modal .modal-content {
+    text-align: center;
+}
+
+#share-modal h4 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+#share-modal .share-link-input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--light-bg);
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    /* 让用户无法编辑，但可以复制 */
+    -webkit-user-select: all; /* iOS Safari */
+    -moz-user-select: all; /* Firefox */
+    -ms-user-select: all; /* Internet Explorer/Edge */
+    user-select: all; /* Chrome, Opera, and modern browsers */
+}
+
+#share-modal .copy-btn {
+    width: 100%;
+    padding: 0.8rem 1rem;
+}
+
+#share-modal .copy-btn.copied {
+    background-color: #198754; /* 绿色 */
+    cursor: default;
+}

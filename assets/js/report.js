@@ -89,10 +89,60 @@ document.addEventListener('DOMContentLoaded', function() {
             
             <div class="report-nav">
                 <a href="index.html" class="button secondary">返回首页</a>
+                <!-- 【已修改】新增“看看朋友的”分享按钮 -->
+                <button id="share-btn" class="button secondary">看看朋友的</button>
                 <a href="quiz.html?version=${reportData.version}" class="button primary">重新测评</a>
             </div>
         </div>
     `;
 
     reportContainer.innerHTML = reportHTML;
+
+    // --- 【新增】分享功能逻辑 ---
+    const shareBtn = document.getElementById('share-btn');
+    if (shareBtn) {
+        shareBtn.addEventListener('click', showShareModal);
+    }
+
+    function showShareModal() {
+        const existingModal = document.getElementById('share-modal');
+        if (existingModal) existingModal.remove();
+
+        const siteUrl = 'https://www.sri-test-2025.top';
+        const modal = document.createElement('div');
+        modal.id = 'share-modal';
+        // 使用 ad-modal 的基础样式，但添加 share-modal ID 以便覆盖
+        modal.innerHTML = `
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <button class="modal-close">&times;</button>
+                <h4>分享给朋友一起测</h4>
+                <input type="text" class="share-link-input" value="${siteUrl}" readonly>
+                <button class="button primary copy-btn">复制链接</button>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+        
+        const copyBtn = modal.querySelector('.copy-btn');
+        const linkInput = modal.querySelector('.share-link-input');
+
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(siteUrl).then(() => {
+                copyBtn.textContent = '已复制！';
+                copyBtn.classList.add('copied');
+                linkInput.select(); // 选中输入框内容，给用户更强的反馈
+                setTimeout(() => {
+                    copyBtn.textContent = '复制链接';
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('复制失败:', err);
+                copyBtn.textContent = '复制失败';
+            });
+        });
+
+        modal.querySelector('.modal-close').addEventListener('click', () => modal.remove());
+        modal.querySelector('.modal-overlay').addEventListener('click', () => modal.remove());
+    }
 });

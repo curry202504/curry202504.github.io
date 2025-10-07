@@ -9,13 +9,28 @@ document.addEventListener('DOMContentLoaded', function() {
         adsData.forEach(ad => {
             // 为每个广告数据创建一个按钮 (a标签)
             const adButton = document.createElement('a');
-            adButton.className = 'button secondary ad-button'; // 使用次要按钮样式
+            
+            adButton.className = 'button secondary ad-button ' + (ad.className || '');
+            
             adButton.textContent = ad.text;
             adButton.href = '#'; // 使用'#'防止页面跳转
 
             // 给按钮添加点击事件
             adButton.addEventListener('click', function(event) {
                 event.preventDefault(); // 阻止'#'导致的页面跳动
+
+                // --- 【新增】向 Google Analytics 发送事件 ---
+                // 检查 gtag 函数是否存在，防止在本地测试时报错
+                if (typeof gtag === 'function') {
+                    gtag('event', 'ad_click', {
+                        'event_category': 'Homepage Ads',
+                        'event_label': ad.text, // 使用按钮的文字作为标签，方便区分
+                        'value': 1 // 每次点击计为 1
+                    });
+                    console.log(`GA Event Sent: ad_click - ${ad.text}`); // 在浏览器控制台打印日志，方便我们测试
+                }
+                // --- 结束新增部分 ---
+
                 showAdModal(ad.imageUrl, ad.link); // 调用显示弹窗的函数
             });
 
