@@ -15,7 +15,7 @@ const adsData = [
     },
     {
         text: "☕ 制作不易感谢打赏",
-        imageUrl: "assets/images/ad-image-3.jpeg",
+        imageUrl: "assets/images/ad-image-3.png",
         link: null, // link 设置为 null
         className: "ad-donate"
     }
