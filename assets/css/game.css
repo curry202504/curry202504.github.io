@@ -2,17 +2,24 @@ body {
     margin: 0;
     background-color: #000;
     color: #fff;
-    font-family: sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     overflow: hidden;
+    /* 防止在移动端拖动时滚动页面 */
+    touch-action: none;
 }
 
 #game-container {
     position: relative;
     border: 2px solid #fff;
+    background-color: #0c1444; /* 深蓝色夜空背景 */
+}
+
+canvas {
+    display: block; /* 移除画布下方的微小空隙 */
 }
 
 #ui-container {
@@ -24,6 +31,8 @@ body {
     justify-content: space-between;
     align-items: center;
     font-size: 1.2rem;
+    /* 确保UI在游戏元素之上 */
+    z-index: 10;
 }
 
 #back-button {
@@ -44,6 +53,8 @@ body {
     border-radius: 10px;
     text-align: center;
     color: white;
+    z-index: 20;
+    width: 80%;
 }
 
 #game-over-screen h2 {
