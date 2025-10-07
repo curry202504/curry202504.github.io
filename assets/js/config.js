@@ -7,17 +7,17 @@
 const adsData = [
     {
         text: "🍔 0元吃外卖",
-        imageUrl: "assets/images/ad-image-1.jpeg", // 已从 .png 修改为 .jpeg
+        imageUrl: "assets/images/ad-image-1.jpeg",
         link: "" // 如果不需要点击图片跳转，这里留空
     },
     {
         text: "👑 霸王餐",
-        imageUrl: "assets/images/ad-image-2.jpeg", // 已从 .png 修改为 .jpeg
+        imageUrl: "assets/images/ad-image-2..jpeg", // 【已修正】这里改成了两个点，以匹配您上传的文件名
         link: "" // 如果不需要点击图片跳转，这里留空
     },
     {
         text: "💼 广告位招租",
-        imageUrl: "assets/images/ad-image-3.jpeg", // 已从 .png 修改为 .jpeg
+        imageUrl: "assets/images/ad-image-3.jpeg",
         link: "" // 如果不需要点击图片跳转，这里留空
     }
 ];
