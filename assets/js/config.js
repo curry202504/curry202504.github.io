@@ -6,18 +6,18 @@
 
 const adsData = [
     {
-        text: "🍔 今日精选福利",
-        imageUrl: "assets/images/ad-image-1.png", // 示例图片路径
-        link: "https://www.example.com/takeout"
+        text: "🍔 0元吃外卖",
+        imageUrl: "assets/images/ad-image-1.jpeg", // 已从 .png 修改为 .jpeg
+        link: "" // 如果不需要点击图片跳转，这里留空
     },
     {
-        text: "💡 心理健康读物推荐",
-        imageUrl: "assets/images/ad-image-2.png", // 示例图片路径
-        link: "https://www.example.com/partner2"
+        text: "👑 霸王餐",
+        imageUrl: "assets/images/ad-image-2.jpeg", // 已从 .png 修改为 .jpeg
+        link: "" // 如果不需要点击图片跳转，这里留空
     },
     {
-        text: "🎧 冥想与放松App",
-        imageUrl: "assets/images/ad-image-3.png", // 示例图片路径
-        link: "https://www.example.com/partner3"
+        text: "💼 广告位招租",
+        imageUrl: "assets/images/ad-image-3.jpeg", // 已从 .png 修改为 .jpeg
+        link: "" // 如果不需要点击图片跳转，这里留空
     }
 ];
