@@ -14,7 +14,7 @@ const adsData = [
         className: "ad-female"
     },
     {
-        text: "☕ 制作不易感谢打赏",
+        text: "☕ 低于60点击这里",
         imageUrl: "assets/images/ad-image-3.png",
         link: null, // link 设置为 null
         className: "ad-donate"
