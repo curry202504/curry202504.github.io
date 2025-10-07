@@ -419,8 +419,8 @@ header a.active {
 
 /* === 广告位 === */
 #ads {
-    padding: 4rem 0;
-    border-top: 1px solid var(--border-color);
+    padding: 2rem 0; /* 在移动端减少一些垂直间距 */
+    border-bottom: 1px solid var(--border-color);
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -431,6 +431,8 @@ header a.active {
     border-color: #ffc107;
     color: #fd7e14;
     font-weight: 500;
+    padding: 0.5rem 1rem; /* 缩小按钮尺寸 */
+    font-size: 0.9rem;
 }
 
 .ad-button:hover {
@@ -1018,9 +1020,15 @@ footer {
     .summary-cards {
         grid-template-columns: 1fr 1fr;
     }
+    
+    /* 【已修改】将选项布局改为灵活的自动换行模式 */
     .options-group {
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
     }
+
     .dimension-grid {
         grid-template-columns: 1fr;
     }

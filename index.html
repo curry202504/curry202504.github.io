@@ -8,6 +8,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKV12VC2G5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DKV12VC2G5');
+</script>
 </head>
 <body>
 
@@ -25,6 +34,11 @@
     </header>
 
     <main>
+        <!-- 【已修改】广告位移动到了这里 -->
+        <section id="ads" class="container">
+            <!-- JS动态填充区域 -->
+        </section>
+
         <!-- 核心介绍区 -->
         <section id="hero" class="container">
             <div class="hero-text">
@@ -47,14 +61,8 @@
                     </a>
                 </div>
             </div>
-            <!-- 【最终修正】删除了里面的 <span>视觉元素占位</span> 文字 -->
             <div class="hero-visual">
             </div>
-        </section>
-
-        <!-- 广告位 -->
-        <section id="ads" class="container">
-            <!-- JS动态填充区域 -->
         </section>
 
         <!-- 特性介绍区 -->
@@ -116,12 +124,3 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 性压抑指数计算器. 仅供教育和自我了解使用，不构成医疗建议。</p>
-        </div>
-    </footer>
-
-    <script src="assets/js/config.js"></script>
-    <script src="assets/js/main.js"></script>
-
-</body>
-</html>
