@@ -440,8 +440,8 @@ header a.active {
     border-color: #fd7e14;
 }
 
-/* === 广告弹窗 (Modal) === */
-#ad-modal {
+/* === 【已修改】通用弹窗 (Modal) 样式 === */
+#ad-modal, #share-modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -453,7 +453,7 @@ header a.active {
     justify-content: center;
 }
 
-#ad-modal .modal-overlay {
+#ad-modal .modal-overlay, #share-modal .modal-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -463,7 +463,7 @@ header a.active {
     backdrop-filter: blur(5px);
 }
 
-#ad-modal .modal-content {
+#ad-modal .modal-content, #share-modal .modal-content {
     position: relative;
     background-color: var(--white);
     padding: 20px;
@@ -481,7 +481,7 @@ header a.active {
     object-fit: contain;
 }
 
-#ad-modal .modal-close {
+#ad-modal .modal-close, #share-modal .modal-close {
     position: absolute;
     top: -15px;
     right: -15px;
@@ -1040,6 +1040,7 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
 /* === 【新增】自定义广告按钮样式 === */
 .ad-button.ad-male {
     background-color: #e9f2ff; /* 低饱和度浅蓝色 */

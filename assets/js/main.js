@@ -4,50 +4,44 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- 1. 动态加载广告位 ---
     const adsContainer = document.getElementById('ads');
 
-    // 检查广告容器是否存在并且 adsData (来自config.js) 是否有内容
     if (adsContainer && adsData && adsData.length > 0) {
         adsData.forEach(ad => {
-            // 为每个广告数据创建一个按钮 (a标签)
             const adButton = document.createElement('a');
-            
             adButton.className = 'button secondary ad-button ' + (ad.className || '');
-            
             adButton.textContent = ad.text;
-            adButton.href = '#'; // 使用'#'防止页面跳转
+            
+            // 【已修改】如果广告有链接，则直接使用；否则使用 '#'
+            adButton.href = ad.link || '#';
 
             // 给按钮添加点击事件
             adButton.addEventListener('click', function(event) {
-                event.preventDefault(); // 阻止'#'导致的页面跳动
+                // 如果没有链接 (即我们想弹出图片)，才阻止默认行为
+                if (!ad.link) {
+                    event.preventDefault();
 
-                // --- 【新增】向 Google Analytics 发送事件 ---
-                // 检查 gtag 函数是否存在，防止在本地测试时报错
-                if (typeof gtag === 'function') {
-                    gtag('event', 'ad_click', {
-                        'event_category': 'Homepage Ads',
-                        'event_label': ad.text, // 使用按钮的文字作为标签，方便区分
-                        'value': 1 // 每次点击计为 1
-                    });
-                    console.log(`GA Event Sent: ad_click - ${ad.text}`); // 在浏览器控制台打印日志，方便我们测试
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'ad_click', {
+                            'event_category': 'Homepage Ads',
+                            'event_label': ad.text,
+                            'value': 1
+                        });
+                        console.log(`GA Event Sent: ad_click - ${ad.text}`);
+                    }
+                    showAdModal(ad.imageUrl, null); // 弹出图片
                 }
-                // --- 结束新增部分 ---
-
-                showAdModal(ad.imageUrl, ad.link); // 调用显示弹窗的函数
+                // 如果有链接，则不阻止默认行为，浏览器会自动跳转到 game.html
             });
 
-            // 把创建好的按钮添加到广告容器里
             adsContainer.appendChild(adButton);
         });
     }
 
-    // --- 2. 创建并管理广告弹窗 (Modal) ---
     function showAdModal(imageUrl, link) {
-        // 检查页面上是否已经有弹窗了，有就先删掉
+        // ... (这部分代码保持不变) ...
         const existingModal = document.getElementById('ad-modal');
         if (existingModal) {
             existingModal.remove();
         }
-
-        // 创建弹窗的HTML结构
         const modal = document.createElement('div');
         modal.id = 'ad-modal';
         modal.innerHTML = `
@@ -59,15 +53,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 ${link ? `</a>` : ''}
             </div>
         `;
-
-        // 把弹窗添加到网页的 body 中
         document.body.appendChild(modal);
-
-        // 获取弹窗的关闭按钮和遮罩层
         const closeModalButton = modal.querySelector('.modal-close');
         const overlay = modal.querySelector('.modal-overlay');
-
-        // 点击关闭按钮或遮罩层时，关闭弹窗
         closeModalButton.addEventListener('click', () => modal.remove());
         overlay.addEventListener('click', () => modal.remove());
     }
